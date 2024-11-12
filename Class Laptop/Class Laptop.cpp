@@ -91,9 +91,12 @@ class Laptop
 	SSD ssd;
 	RAM ram;
 	GPU gpu;
+public:
+	Laptop(CPU ghz, SSD v, RAM r, GPU b);
 };
 
 int main()
 {
-
+	Mouse mouse;
+	Laptop laptop;
 }
