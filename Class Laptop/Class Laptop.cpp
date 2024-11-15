@@ -87,16 +87,31 @@ public:
 
 class Laptop
 {
-	CPU spu;
+	CPU cpu;
 	SSD ssd;
 	RAM ram;
 	GPU gpu;
 public:
-	Laptop(CPU ghz, SSD v, RAM r, GPU b);
+	Laptop() = default;
+	Laptop(const CPU& c, const SSD& s, const RAM& r, const GPU& g)
+		: cpu(c), ssd(s), ram(r), gpu(g) {}
+
+	void Print() {
+		cout << "Laptop - " << endl;
+		cpu.Print();
+		ssd.Print();
+		ram.Print();
+		gpu.Print();
+	}
 };
 
 int main()
 {
-	Mouse mouse;
-	Laptop laptop;
+	CPU cpu("Intel i7", 3.5);
+	SSD ssd("Samsung EVO", 512);
+	RAM ram("Kingston HyperX", 16);
+	GPU gpu("NVIDIA GTX 1650", 4);
+
+	Laptop laptop(cpu, ssd, ram, gpu);
+	laptop.Print();
 }
